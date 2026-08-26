@@ -1,0 +1,36 @@
+---
+const siteUrl = "https://kelompok.id/";
+---
+
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="robots" content="noindex, follow" />
+    <link rel="canonical" href={siteUrl} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>Halaman tidak ditemukan | Kelompok.id</title>
+  </head>
+  <body>
+    <main>
+      <img src="/brand/logo-square.png" alt="" width="230" height="226" />
+      <p>404</p>
+      <h1>Halaman tidak ditemukan.</h1>
+      <p>Alamat yang kamu buka tidak tersedia atau telah dipindahkan.</p>
+      <a href="/">Kembali ke Kelompok.id <span aria-hidden="true">→</span></a>
+    </main>
+  </body>
+</html>
+
+<style>
+  :global(*) { box-sizing: border-box; }
+  :global(body) { margin: 0; color: white; background: #3d0c64; font-family: system-ui, sans-serif; }
+  main { min-height: 100svh; padding: 2rem; display: grid; place-content: center; justify-items: center; text-align: center; }
+  img { width: 72px; height: auto; margin-bottom: 1.5rem; border-radius: 15px; }
+  p:first-of-type { margin: 0; color: #ffad2f; font-size: .75rem; font-weight: 800; letter-spacing: .18em; }
+  h1 { margin: 1rem 0; font-size: clamp(2.5rem, 7vw, 5rem); letter-spacing: -.05em; }
+  p:not(:first-of-type) { margin: 0 0 2rem; color: #ddcde8; line-height: 1.7; }
+  a { padding: 1rem 1.25rem; color: #351050; background: #ffad2f; border-radius: 8px; font-weight: 800; text-decoration: none; }
+  a:focus-visible { outline: 3px solid white; outline-offset: 4px; }
+</style>

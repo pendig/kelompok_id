@@ -7,6 +7,45 @@ const capabilities = [
 ];
 
 const values = ["Akses lebih awal", "Kesempatan memberi masukan", "Kabar perkembangan produk", "Pendampingan uji coba"];
+
+const movements = [
+  { label: "Organisasi", title: "Organisasi & komunitas", copy: "Ruang tumbuh bagi kelompok yang menggerakkan perubahan dari kampus hingga lingkungan sekitar." },
+  { label: "Pengetahuan", title: "Pendidikan & literasi", copy: "Cerita tentang gagasan, kaderisasi, dan keberanian anak muda memperluas pengetahuan." },
+  { label: "Kepedulian", title: "Aksi sosial", copy: "Kerja bersama yang hadir saat masyarakat membutuhkan bantuan dan keberpihakan." },
+  { label: "Masa depan", title: "Prestasi & isu publik", copy: "Pencapaian, suara kritis, dan partisipasi anak muda dalam menentukan masa depan." },
+];
+
+const stories = [
+  { type: "SUARA KAMPUS", title: "Realita negeri disuarakan dari UGM", href: "https://www.instagram.com/kelompok_id/reel/DcfzNy3TzAq/" },
+  { type: "GERAK BERSAMA", title: "Mahasiswa baru menyerukan kepedulian", href: "https://www.instagram.com/kelompok_id/reel/Dce3Ytozb1M/" },
+  { type: "LITERASI", title: "Anak muda diajak lebih dekat dengan buku", href: "https://www.instagram.com/kelompok_id/p/DcconDBzlzk/" },
+];
+
+const siteUrl = "https://kelompok.id/";
+const pageTitle = "Kelompok.id | Platform Organisasi & Komunitas";
+const pageDescription = "Kelompok membantu organisasi dan komunitas mengelola kegiatan, membangun kepercayaan, serta menunjukkan dampak. Segera hadir, ikuti uji coba kami.";
+const structuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": `${siteUrl}#organization`,
+      name: "Kelompok.id",
+      url: siteUrl,
+      logo: `${siteUrl}brand/logo-square.png`,
+      description: pageDescription,
+      sameAs: ["https://www.instagram.com/kelompok_id"],
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${siteUrl}#website`,
+      url: siteUrl,
+      name: "Kelompok.id",
+      inLanguage: "id-ID",
+      publisher: { "@id": `${siteUrl}#organization` },
+    },
+  ],
+};
 ---
 
 <!doctype html>
@@ -14,21 +53,40 @@ const values = ["Akses lebih awal", "Kesempatan memberi masukan", "Kabar perkemb
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <meta name="description" content="Kelompok adalah platform untuk membantu organisasi terlihat, dipercaya, dan bertumbuh. Segera hadir—daftar uji coba melalui Instagram." />
+    <meta name="description" content={pageDescription} />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="theme-color" content="#4b168f" />
+    <link rel="canonical" href={siteUrl} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="id_ID" />
+    <meta property="og:site_name" content="Kelompok.id" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:url" content={siteUrl} />
+    <meta property="og:image" content={`${siteUrl}og-image.png`} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Logo Kelompok.id" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={pageDescription} />
+    <meta name="twitter:image" content={`${siteUrl}og-image.png`} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
-    <title>Kelompok.id — The Solutions of Movement</title>
+    <title>{pageTitle}</title>
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(structuredData)}></script>
   </head>
   <body>
     <a class="skip-link" href="#main">Lewati ke konten</a>
     <header class="site-header">
       <a class="brand" href="#" aria-label="Kelompok.id, kembali ke atas">
-        <img src="/brand/kelompok-logo.png" alt="Kelompok.id" />
+        <img src="/brand/kelompok-logo.png" alt="Kelompok.id" width="430" height="100" />
       </a>
       <nav aria-label="Navigasi utama">
         <a href="#tentang">Tentang</a>
+        <a href="#gerakan">Gerakan</a>
         <a href="#fitur">Solusi</a>
         <a href="#waitlist">Waitlist</a>
       </nav>
@@ -38,7 +96,7 @@ const values = ["Akses lebih awal", "Kesempatan memberi masukan", "Kabar perkemb
     <main id="main">
       <section class="hero" aria-labelledby="hero-title">
         <div class="hero-copy">
-          <p class="eyebrow"><span></span> Coming soon · belum dirilis</p>
+          <p class="eyebrow"><span></span> Platform organisasi & komunitas · Coming soon</p>
           <h1 id="hero-title">Gerakan besar<br />bermula dari<br /><em>kelompok.</em></h1>
           <p class="hero-lead">Kelompok sedang kami siapkan untuk membantu organisasi hadir, mengelola kegiatan, dan menunjukkan dampaknya kepada dunia.</p>
           <div class="hero-actions">
@@ -52,7 +110,7 @@ const values = ["Akses lebih awal", "Kesempatan memberi masukan", "Kabar perkemb
           <div class="orbit-ring ring-two"></div>
           <div class="profile-card">
             <div class="profile-cover"></div>
-            <img class="profile-logo" src="/brand/logo-square.png" alt="" />
+            <img class="profile-logo" src="/brand/logo-square.png" alt="" width="230" height="226" />
             <p class="profile-kicker">PROFIL ORGANISASI</p>
             <h2>Rumah untuk gerakanmu.</h2>
             <div class="profile-status"><i></i> Terverifikasi & transparan</div>
@@ -68,7 +126,48 @@ const values = ["Akses lebih awal", "Kesempatan memberi masukan", "Kabar perkemb
         <p class="section-label">Mengapa Kelompok</p>
         <div>
           <h2 id="manifesto-title">Kerja baik layak mendapat<br /><span>infrastruktur yang baik.</span></h2>
-          <p>Banyak organisasi bekerja nyata, tetapi cerita, data, dan dampaknya tercecer di banyak tempat. Kelompok menyatukannya dalam profil publik yang mudah dikelola—agar energi tim kembali pada gerakan, bukan administrasi.</p>
+          <p>Banyak organisasi bekerja nyata, tetapi cerita, data, dan dampaknya tercecer di banyak tempat. Kelompok menyatukannya dalam profil publik yang mudah dikelola. Dengan begitu, energi tim kembali pada gerakan, bukan administrasi.</p>
+        </div>
+      </section>
+
+      <section class="movement" id="gerakan" aria-labelledby="movement-title">
+        <div class="movement-lead">
+          <p class="section-label light">Dari gerakan nyata</p>
+          <h2 id="movement-title">Kami mengikuti mereka yang memilih untuk <em>bergerak.</em></h2>
+          <p>Setiap hari, anak muda, organisasi, dan komunitas mengubah kepedulian menjadi tindakan. Kelompok sedang dibangun agar kerja mereka lebih mudah ditemukan, dikelola, dan dipercaya.</p>
+          <a class="text-link movement-link" href="https://www.instagram.com/kelompok_id">Ikuti cerita di @kelompok_id <span>↗</span></a>
+        </div>
+        <div class="movement-board" aria-label="Ragam gerakan yang disoroti Kelompok">
+          {movements.map((item, index) => (
+            <article>
+              <div class="movement-meta"><span>{String(index + 1).padStart(2, "0")}</span>{item.label}</div>
+              <h3>{item.title}</h3>
+              <p>{item.copy}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section class="editorial" aria-labelledby="editorial-title">
+        <div class="editorial-heading">
+          <div>
+            <p class="section-label">Dari Instagram Kelompok</p>
+            <h2 id="editorial-title">Cerita yang sedang bergerak.</h2>
+          </div>
+          <p>Sorotan pilihan tentang gagasan, kepedulian, dan kerja kolektif anak muda Indonesia.</p>
+        </div>
+        <div class="story-grid">
+          {stories.map((story, index) => (
+            <a class={`story-card story-${index + 1}`} href={story.href} aria-label={`${story.title}, buka di Instagram`}>
+              <span class="story-type">{story.type}</span>
+              <strong>{story.title}</strong>
+              <span class="story-arrow" aria-hidden="true">↗</span>
+            </a>
+          ))}
+        </div>
+        <div class="story-pitch">
+          <p><strong>Punya cerita kegiatan atau gerakan?</strong> Kabari kami agar lebih banyak kerja baik dapat ditemukan.</p>
+          <a class="button button-primary" href="https://www.instagram.com/kelompok_id">Kirim cerita via DM <span>↗</span></a>
         </div>
       </section>
 
@@ -113,7 +212,7 @@ Ingin menjadi pengguna awal?
       </section>
 
       <section class="final-cta" aria-labelledby="cta-title">
-        <img src="/brand/logo-square.png" alt="" />
+        <img src="/brand/logo-square.png" alt="" width="230" height="226" loading="lazy" />
         <p class="section-label light">The Solutions of Movement</p>
         <h2 id="cta-title">Saatnya gerakanmu<br /><em>punya rumah.</em></h2>
         <p>Platform ini masih dalam tahap persiapan dan belum dirilis. Hubungi kami untuk ikut uji coba atau masuk waitlist.</p>
@@ -122,7 +221,7 @@ Ingin menjadi pengguna awal?
     </main>
 
     <footer>
-      <img src="/brand/kelompok-logo.png" alt="Kelompok.id" />
+      <img src="/brand/kelompok-logo.png" alt="Kelompok.id" width="430" height="100" loading="lazy" />
       <p>Infrastruktur untuk gerakan yang berdampak.</p>
       <p>© {new Date().getFullYear()} Kelompok.id</p>
     </footer>
@@ -173,6 +272,35 @@ Ingin menjadi pengguna awal?
   .manifesto h2 { font-size: clamp(2.7rem, 5vw, 5.2rem); line-height: 1.02; }
   .manifesto h2 span { color: #8a8093; }
   .manifesto div > p { max-width: 720px; margin: 2rem 0 0 auto; color: #665d6f; font-size: 1.08rem; line-height: 1.8; }
+  .movement { padding: clamp(5rem, 9vw, 9rem) clamp(1.25rem, 7vw, 7.5rem); display: grid; grid-template-columns: .82fr 1.18fr; gap: clamp(4rem, 8vw, 8rem); color: white; background: #4b168f; }
+  .movement-lead { align-self: center; }
+  .movement-lead h2 { max-width: 650px; margin: 1.2rem 0 1.8rem; font-size: clamp(3rem, 5vw, 5.5rem); line-height: .96; }
+  .movement-lead h2 em { color: #ffad2f; font-style: normal; }
+  .movement-lead > p:not(.section-label) { max-width: 570px; color: #e0cfee; font-size: 1rem; line-height: 1.8; }
+  .movement-link { display: inline-block; margin-top: 1.2rem; color: white; }
+  .movement-board { display: grid; grid-template-columns: repeat(2, 1fr); border-top: 1px solid rgba(255,255,255,.25); border-left: 1px solid rgba(255,255,255,.25); }
+  .movement-board article { min-height: 260px; padding: clamp(1.5rem, 3vw, 2.4rem); border-right: 1px solid rgba(255,255,255,.25); border-bottom: 1px solid rgba(255,255,255,.25); }
+  .movement-meta { display: flex; justify-content: space-between; color: #d4bce9; font-size: .63rem; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; }
+  .movement-meta span { color: #ffbd52; }
+  .movement-board h3 { margin: 4.5rem 0 .9rem; font-size: clamp(1.45rem, 2.2vw, 2rem); }
+  .movement-board p { margin: 0; color: #dac8e8; font-size: .82rem; line-height: 1.7; }
+  .editorial { padding: clamp(5rem, 9vw, 9rem) clamp(1.25rem, 7vw, 7.5rem); background: #fbfaff; }
+  .editorial-heading { margin-bottom: 3rem; display: grid; grid-template-columns: 1.35fr .65fr; align-items: end; gap: 3rem; }
+  .editorial-heading h2 { margin-top: 1rem; font-size: clamp(2.8rem, 5vw, 5.4rem); line-height: .98; }
+  .editorial-heading > p { margin: 0; color: #665d6f; line-height: 1.75; }
+  .story-grid { display: grid; grid-template-columns: 1.08fr .92fr .92fr; min-height: 420px; }
+  .story-card { position: relative; padding: clamp(1.5rem, 3vw, 2.5rem); display: flex; flex-direction: column; justify-content: flex-end; color: white; text-decoration: none; overflow: hidden; isolation: isolate; }
+  .story-card::before { content: ""; position: absolute; inset: 0; z-index: -2; background: radial-gradient(circle at 72% 22%, rgba(255,255,255,.13), transparent 27%), repeating-linear-gradient(125deg, transparent 0 34px, rgba(255,255,255,.055) 35px 36px); transition: transform .3s; }
+  .story-card:hover::before { transform: scale(1.05); }
+  .story-1 { background: #30104d; }
+  .story-2 { background: #5c1ca4; }
+  .story-3 { color: #2f1048; background: #ffad2f; }
+  .story-type { margin-bottom: auto; font-size: .65rem; font-weight: 800; letter-spacing: .16em; }
+  .story-card strong { max-width: 420px; font: 600 clamp(1.7rem, 3vw, 3rem)/1.04 "Space Grotesk", sans-serif; letter-spacing: -.04em; }
+  .story-arrow { position: absolute; top: 1.7rem; right: 1.7rem; font-size: 1.2rem; }
+  .story-pitch { margin-top: 1.5rem; padding: 1.5rem 0; display: flex; align-items: center; justify-content: space-between; gap: 2rem; border-bottom: 1px solid #ddd5e4; }
+  .story-pitch p { margin: 0; color: #665d6f; }
+  .story-pitch strong { color: #17121f; }
   .solutions { padding: clamp(5rem, 9vw, 9rem) clamp(1.25rem, 7vw, 7.5rem); display: grid; grid-template-columns: .8fr 1.2fr; gap: 6rem; color: white; background: #27073f; }
   .section-label.light { color: #d9bfff; }
   .section-intro h2 { margin: 1.2rem 0 1.5rem; font-size: clamp(3rem, 5vw, 5.5rem); line-height: .98; }
@@ -207,10 +335,13 @@ Ingin menjadi pengguna awal?
   @media (max-width: 900px) {
     nav { display: none; }
     .header-cta { margin-left: auto; }
-    .hero, .solutions, .open { grid-template-columns: 1fr; }
+    .hero, .movement, .solutions, .open { grid-template-columns: 1fr; }
     .hero { padding-top: 5rem; }
     .orbit { min-height: 520px; transform: scale(.85); }
     .manifesto { grid-template-columns: 1fr; gap: 1rem; }
+    .editorial-heading { grid-template-columns: 1fr; gap: 1rem; }
+    .story-grid { grid-template-columns: 1fr; min-height: 0; }
+    .story-card { min-height: 310px; }
     .solutions { gap: 3rem; }
   }
   @media (max-width: 580px) {
@@ -219,7 +350,9 @@ Ingin menjadi pengguna awal?
     .header-cta { padding: .65rem .8rem; font-size: .7rem; }
     h1 { font-size: clamp(3.2rem, 15vw, 5rem); }
     .orbit { margin: -2rem; transform: scale(.68); }
-    .capability-grid, .open-copy ul { grid-template-columns: 1fr; }
+    .movement-board, .capability-grid, .open-copy ul { grid-template-columns: 1fr; }
+    .movement-board article { min-height: 220px; }
+    .story-pitch { align-items: flex-start; flex-direction: column; }
     .open-visual { min-height: 380px; }
     footer { align-items: flex-start; flex-direction: column; gap: .5rem; }
     footer p { margin: 0; } footer p:last-child { margin-left: 0; }
